@@ -1,5 +1,5 @@
 // Número de WhatsApp (formato internacional sin +)
-const WHATSAPP_NUMBER = "5492262629001";
+const WHATSAPP_NUMBER = "549222762-4167";
 
 // Productos: carruseles + tarjetas sueltas
 const products = [
