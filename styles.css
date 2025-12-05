@@ -1,6 +1,6 @@
 :root {
     --bg: #f3f3f6; /* intermedio entre gris y blanco */
-    --fuchsia: #e83a8e;
+    --fuchsia: #e40000;
     --fuchsia-soft: rgba(232, 58, 142, 0.15);
     --brown: #d4b08a;
     --brown-soft: rgba(212, 176, 138, 0.2);
@@ -170,7 +170,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0.4rem 1rem 0.5rem;
-    position: relative;
 }
 
 .menu-toggle {
@@ -185,18 +184,17 @@ body {
     font-size: 0.9rem;
 }
 
+/* Menú responsive tipo acordeón: se abre debajo del botón y empuja el contenido */
 .nav {
-    position: fixed;
-    top: 110px; /* debajo del header */
-    left: -100%;
-    width: 75%;
-    max-width: 260px;
-    height: calc(100vh - 110px);
+    width: 100%;
     background: var(--white);
+    border-radius: 12px;
+    margin-top: 0.45rem;
     box-shadow: var(--shadow-soft);
-    padding: 1rem;
-    transition: left 0.25s ease;
-    z-index: 25;
+    overflow: hidden;
+    max-height: 0;          /* cerrado por defecto */
+    padding: 0 1rem;        /* sin padding visible cerrado */
+    transition: max-height 0.25s ease, padding 0.25s ease;
 }
 
 .nav ul {
@@ -227,8 +225,10 @@ body.menu-open {
     overflow: hidden;
 }
 
+/* Cuando está abierto, el menú se despliega hacia abajo */
 body.menu-open .nav {
-    left: 0;
+    max-height: 260px;                  /* subí este valor si tenés más items */
+    padding: 0.8rem 1rem 0.9rem;
 }
 
 body.menu-open .nav-overlay {
@@ -448,57 +448,6 @@ body.menu-open .nav-overlay {
 .carousel-arrow:disabled {
     opacity: 0.35;
     cursor: default;
-}
-
-.carousel-footer {
-    margin-top: 0.4rem;
-}
-
-.carousel-track {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    scroll-behavior: smooth;
-    padding: 0.2rem 0;
-    scroll-snap-type: x mandatory;
-}
-
-.carousel-track::-webkit-scrollbar {
-    height: 6px;
-}
-
-.carousel-track::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.12);
-    border-radius: 999px;
-}
-
-/* Cada tarjeta hace snap */
-.carousel-track .card {
-    scroll-snap-align: start;
-}
-
-.carousel-arrow {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.9);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-
-.carousel-arrow.left {
-    left: -10px;
-}
-
-.carousel-arrow.right {
-    right: -10px;
 }
 
 .carousel-footer {
@@ -824,13 +773,19 @@ body.cart-open .cart-backdrop {
 
 /* Nav desktop */
 @media (min-width: 900px) {
+    .nav-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     .nav {
-        position: static;
-        height: auto;
-        width: auto;
-        box-shadow: none;
+        max-height: none;
         padding: 0;
-        left: 0 !important;
+        margin-top: 0;
+        box-shadow: none;
+        background: transparent;
+        overflow: visible;
     }
 
     .nav ul {
@@ -845,20 +800,4 @@ body.cart-open .cart-backdrop {
     .nav-overlay {
         display: none;
     }
-}
-
-/* Menú responsive: desplegable debajo del botón "Menú" */
-.nav {
-    position: absolute;
-    top: calc(100% + 0.4rem); /* justo debajo del botón */
-    left: -100%;              /* escondido por defecto */
-    width: min(260px, 90vw);
-    background: var(--white);
-    box-shadow: var(--shadow-soft);
-    padding: 0.8rem 1rem;
-    border-radius: 12px;
-    transition: left 0.25s ease;
-    z-index: 25;
-    max-height: 70vh;
-    overflow-y: auto;
 }
