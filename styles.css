@@ -32,12 +32,12 @@ body {
     line-height: 1.5;
 }
 
-/* UTILES */
+/* SECCIONES */
 .section {
     max-width: 1200px;
     margin: 1.8rem auto;
     padding: 0 1rem;
-    scroll-margin-top: 110px; /* para anclas debajo del header */
+    scroll-margin-top: 110px; /* anclas debajo del header */
 }
 
 .section-header {
@@ -50,6 +50,11 @@ body {
 }
 
 .section-header p {
+    color: var(--muted);
+}
+
+.section-note {
+    font-size: 0.9rem;
     color: var(--muted);
 }
 
@@ -367,7 +372,7 @@ body.menu-open .nav-overlay {
     gap: 1rem;
 }
 
-/* Carousel */
+/* CARRUSEL (5 productos, flechas, snap) */
 .carousel {
     position: relative;
     margin-bottom: 1.2rem;
@@ -379,6 +384,7 @@ body.menu-open .nav-overlay {
     gap: 1rem;
     scroll-behavior: smooth;
     padding: 0.2rem 0;
+    scroll-snap-type: x mandatory;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -388,6 +394,11 @@ body.menu-open .nav-overlay {
 .carousel-track::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.12);
     border-radius: 999px;
+}
+
+/* Cada tarjeta hace snap */
+.carousel-track .card {
+    scroll-snap-align: start;
 }
 
 .carousel-arrow {
@@ -400,7 +411,10 @@ body.menu-open .nav-overlay {
     border: 1px solid var(--border);
     background: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    display: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
 
 .carousel-arrow.left {
@@ -618,7 +632,7 @@ body.cart-open .cart-backdrop {
     color: var(--muted);
 }
 
-/* Catalog page */
+/* Catalog & Contact pages */
 .catalog-page .catalog-header,
 .contact-page .contact-header {
     max-width: 900px;
@@ -725,12 +739,6 @@ body.cart-open .cart-backdrop {
 
     .vertical-card-group {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .carousel-arrow {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .catalog-grid {

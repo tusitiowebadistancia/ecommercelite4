@@ -1,14 +1,35 @@
 // Número de WhatsApp (formato internacional sin +)
 const WHATSAPP_NUMBER = "5492262629001";
 
-// Productos mínimos para carrito (podés ampliar)
+// Productos: 5 remeras, 5 buzos, 5 pantalones, 5 zapatos
 const products = [
+    // Remeras
     { id: "remera-oversize", name: "Remera Oversize Negra", price: 15000 },
     { id: "remera-estampada", name: "Remera Estampada Street", price: 17500 },
+    { id: "remera-basica", name: "Remera Básica Beige", price: 14000 },
+    { id: "remera-unisex", name: "Remera Unisex Blanco & Fucsia", price: 18500 },
+    { id: "remera-grafica", name: "Remera Gráfica Night City", price: 19800 },
+
+    // Buzos
     { id: "buzo-hoodie-fucsia", name: "Buzo Hoodie Fucsia", price: 28000 },
-    { id: "zapatillas-chunky", name: "Zapatillas Chunky Fucsia", price: 39000 },
-    { id: "jogger-cargo", name: "Jogger Cargo Beige", price: 29900 },
-    { id: "zapatillas-blancas", name: "Zapatillas Blancas Minimal", price: 42000 },
+    { id: "buzo-oversize-marron", name: "Buzo Oversize Marrón Latte", price: 30500 },
+    { id: "buzo-basico-gris", name: "Buzo Básico Gris Hielo", price: 26900 },
+    { id: "buzo-cropped", name: "Buzo Cropped Fucsia Glow", price: 27500 },
+    { id: "buzo-zipper", name: "Buzo Zipper Latte", price: 31900 },
+
+    // Pantalones
+    { id: "pantalon-jogger-cargo", name: "Jogger Cargo Beige", price: 29900 },
+    { id: "pantalon-jean-mom", name: "Jean Mom Fit", price: 33500 },
+    { id: "pantalon-sastrero", name: "Pantalón Sastrero Latte", price: 36000 },
+    { id: "pantalon-wide-leg", name: "Pantalón Wide Leg Nude", price: 38000 },
+    { id: "pantalon-jogger-basic", name: "Pantalón Jogger Basic", price: 27500 },
+
+    // Zapatos
+    { id: "zapas-blancas-minimal", name: "Zapatillas Blancas Minimal", price: 42000 },
+    { id: "borcegos-urban-marron", name: "Borcegos Urban Marrón", price: 47800 },
+    { id: "zapas-running-fucsia", name: "Zapatillas Running Fucsia", price: 44500 },
+    { id: "zapas-chunky-fucsia", name: "Zapatillas Chunky Fucsia", price: 39000 },
+    { id: "botas-marron-caramel", name: "Botas Marrón Caramel", price: 45500 }
 ];
 
 let cart = [];
@@ -182,48 +203,31 @@ function setupCartPanel() {
     cartCloseBtn.addEventListener("click", closeCart);
 }
 
-/* Carruseles: scroll left/right */
+/* Carruseles: flechas izquierda/derecha, avanzan de a 1 tarjeta */
 function setupCarousels() {
     document.querySelectorAll(".carousel").forEach(carousel => {
         const track = carousel.querySelector(".carousel-track");
-        if (!track) return;
-
         const leftBtn = carousel.querySelector(".carousel-arrow.left");
         const rightBtn = carousel.querySelector(".carousel-arrow.right");
+        if (!track || !leftBtn || !rightBtn) return;
 
-        // Creamos botón right si no está
-        if (!rightBtn) {
-            const newRight = document.createElement("button");
-            newRight.className = "carousel-arrow right";
-            newRight.dataset.dir = "next";
-            newRight.textContent = "›";
-            carousel.appendChild(newRight);
-        }
-
-        const finalRightBtn = carousel.querySelector(".carousel-arrow.right");
-
-        function scrollByDir(dir) {
+        function scrollByOne(direction) {
             const card = track.querySelector(".card");
-            const amount = card ? card.offsetWidth + 16 : 250;
+            const offset = card ? card.offsetWidth + 16 : 260; // ancho tarjeta + gap
             track.scrollBy({
-                left: dir === "next" ? amount : -amount,
+                left: direction === "next" ? offset : -offset,
                 behavior: "smooth"
             });
         }
 
-        if (leftBtn) {
-            leftBtn.addEventListener("click", () => scrollByDir("prev"));
-        }
-        if (finalRightBtn) {
-            finalRightBtn.addEventListener("click", () => scrollByDir("next"));
-        }
+        leftBtn.addEventListener("click", () => scrollByOne("prev"));
+        rightBtn.addEventListener("click", () => scrollByOne("next"));
     });
 }
 
-/* Marcar algunos botones "Agregar al carrito" (opcional) */
+/* Botones "Agregar al carrito" */
 function attachCartButtons() {
-    // Ejemplo: tomamos algunas tarjetas por data-product-id que podés agregar a mano luego
-    document.querySelectorAll("[data-product-id]").forEach(btn => {
+    document.querySelectorAll(".add-cart-btn[data-product-id]").forEach(btn => {
         const id = btn.getAttribute("data-product-id");
         btn.addEventListener("click", () => addToCart(id));
     });
@@ -234,6 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setupMenu();
     setupCartPanel();
     setupCarousels();
+
+    const btnClear = document.getElementById("btnClearCart");
+    const btnWhatsApp = document.getElementById("btnWhatsApp");
+    if (btnClear) btnClear.addEventListener("click", clearCart);
+    if (btnWhatsApp) btnWhatsApp.addEventListener("click", sendWhatsAppOrder);
+
     attachCartButtons();
     renderCart();
 });

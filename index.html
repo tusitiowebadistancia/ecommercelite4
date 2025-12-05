@@ -18,7 +18,7 @@
         <p>🔥 Envíos a todo el país | 3 cuotas sin interés | Descuentos especiales en buzos y pantalones</p>
     </div>
 
-    <!-- SUBENCABEZADO: LOGO + CATEGORÍAS -->
+    <!-- HEADER + SUBENCABEZADO -->
     <header class="header">
         <div class="subheader">
             <div class="logo-group">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <!-- CATEGORÍAS RÁPIDAS EN SUBENCABEZADO -->
+        <!-- CATEGORÍAS RÁPIDAS -->
         <div class="subheader-categories">
             <a href="#remeras" class="cat-pill">Remeras</a>
             <a href="#buzos" class="cat-pill">Buzos</a>
@@ -44,7 +44,7 @@
             <a href="#contacto" class="cat-pill">Contacto</a>
         </div>
 
-        <!-- MENÚ RESPONSIVE DEBAJO DEL SUBENCABEZADO -->
+        <!-- MENÚ RESPONSIVE (debajo del subencabezado) -->
         <div class="nav-wrapper">
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰ Menú</button>
             <nav class="nav" id="mainNav">
@@ -60,11 +60,11 @@
         </div>
     </header>
 
-    <!-- OVERLAY PARA NAV MOBILE -->
+    <!-- OVERLAY NAV -->
     <div class="nav-overlay" id="navOverlay"></div>
 
     <main>
-        <!-- HERO / PORTADA -->
+        <!-- HERO -->
         <section class="hero">
             <div class="hero-text">
                 <h1>Tu tienda de <span>moda urbana</span> en un solo scroll</h1>
@@ -79,18 +79,20 @@
             </div>
         </section>
 
-        <!-- REmeras -->
+        <!-- REMERAS -->
         <section id="remeras" class="section category-section">
             <header class="section-header">
                 <h2>Remeras destacadas</h2>
                 <p>Modelos frescos y cómodos para todos los días.</p>
             </header>
 
-            <!-- CARRUSEL REMERAS -->
+            <!-- CARRUSEL REMERAS (5 productos) -->
             <div class="carousel" data-carousel="remeras">
                 <button class="carousel-arrow left" data-dir="prev">‹</button>
+                <button class="carousel-arrow right" data-dir="next">›</button>
+
                 <div class="carousel-track">
-                    <!-- Tarjetas carrusel (marrón transparente) -->
+                    <!-- 1 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/remera1/500/350" alt="Remera oversize negra" />
                         <div class="card-body">
@@ -100,8 +102,12 @@
                             <p class="card-features">Talles S al XXL · Unisex</p>
                             <p class="card-price">$ 15.000</p>
                             <p class="card-shipping">Envío: 24/48 hs · Costo: $2.500</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="remera-oversize">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 2 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/remera2/500/350" alt="Remera estampada" />
                         <div class="card-body">
@@ -111,8 +117,12 @@
                             <p class="card-features">100% algodón · No destiñe</p>
                             <p class="card-price">$ 17.500</p>
                             <p class="card-shipping">Envío: 3 días · Costo: $2.800</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="remera-estampada">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 3 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/remera3/500/350" alt="Remera básica" />
                         <div class="card-body">
@@ -122,12 +132,46 @@
                             <p class="card-features">Tela peinada · Costuras reforzadas</p>
                             <p class="card-price">$ 14.000</p>
                             <p class="card-shipping">Envío: 48/72 hs · Costo: $2.000</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="remera-basica">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 4 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/remera4/500/350" alt="Remera unisex" />
+                        <div class="card-body">
+                            <h3>Remera Unisex Blanco & Fucsia</h3>
+                            <p class="card-location">Ubicación: Córdoba</p>
+                            <p class="card-desc">Ideal para outfits urbanos con un toque de color.</p>
+                            <p class="card-features">Estampado frontal · Edición limitada</p>
+                            <p class="card-price">$ 18.500</p>
+                            <p class="card-shipping">Envío: 48 hs · Costo: $2.500</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="remera-unisex">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 5 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/remera5/500/350" alt="Remera gráfica" />
+                        <div class="card-body">
+                            <h3>Remera Gráfica Night City</h3>
+                            <p class="card-location">Ubicación: Neuquén</p>
+                            <p class="card-desc">Gráfico inspirado en luces de ciudad nocturna.</p>
+                            <p class="card-features">Estampa frontal + espalda</p>
+                            <p class="card-price">$ 19.800</p>
+                            <p class="card-shipping">Envío: 3 a 5 días · Costo: $3.200</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="remera-grafica">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
                 </div>
+
                 <div class="carousel-footer">
                     <button class="btn-link"
-                            onclick="window.location.href='catalogo.html#remeras-catalogo'">
+                        onclick="window.location.href='catalogo.html#remeras-catalogo'">
                         Ver todos los productos de remeras →
                     </button>
                 </div>
@@ -136,7 +180,7 @@
             <!-- 3 TARJETAS VERTICALES FUXIA -->
             <div class="vertical-card-group">
                 <article class="card card-fuchsia">
-                    <img src="https://picsum.photos/seed/remera4/500/350" alt="Remera unisex" />
+                    <img src="https://picsum.photos/seed/remera6/500/350" alt="Remera unisex" />
                     <div class="card-body">
                         <h3>Remera Unisex Blanco & Fucsia</h3>
                         <p class="card-location">Ubicación: Córdoba</p>
@@ -147,7 +191,7 @@
                     </div>
                 </article>
                 <article class="card card-fuchsia">
-                    <img src="https://picsum.photos/seed/remera5/500/350" alt="Pack remeras" />
+                    <img src="https://picsum.photos/seed/remera7/500/350" alt="Pack remeras" />
                     <div class="card-body">
                         <h3>Pack 2 Remeras Essentials</h3>
                         <p class="card-location">Ubicación: Mar del Plata</p>
@@ -158,7 +202,7 @@
                     </div>
                 </article>
                 <article class="card card-fuchsia">
-                    <img src="https://picsum.photos/seed/remera6/500/350" alt="Remera gráfica" />
+                    <img src="https://picsum.photos/seed/remera8/500/350" alt="Remera gráfica" />
                     <div class="card-body">
                         <h3>Remera Gráfica Night City</h3>
                         <p class="card-location">Ubicación: Neuquén</p>
@@ -171,17 +215,20 @@
             </div>
         </section>
 
-        <!-- Buzos -->
+        <!-- BUZOS -->
         <section id="buzos" class="section category-section">
             <header class="section-header">
                 <h2>Buzos para todo el año</h2>
                 <p>Capuchas, frisa y oversize para combinar con tus zapatillas favoritas.</p>
             </header>
 
-            <!-- CARRUSEL BUZOS -->
+            <!-- CARRUSEL BUZOS (5 productos) -->
             <div class="carousel" data-carousel="buzos">
                 <button class="carousel-arrow left" data-dir="prev">‹</button>
+                <button class="carousel-arrow right" data-dir="next">›</button>
+
                 <div class="carousel-track">
+                    <!-- 1 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/buzo1/500/350" alt="Buzo hoodie" />
                         <div class="card-body">
@@ -191,10 +238,14 @@
                             <p class="card-features">Interior térmico · Unisex</p>
                             <p class="card-price">$ 28.000</p>
                             <p class="card-shipping">Envío: 48 hs · Costo: $3.500</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="buzo-hoodie-fucsia">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 2 -->
                     <article class="card card-brown">
-                        <img src="https://picsum.photos/seed/buzo2/500/350" alt="Buzo estampado" />
+                        <img src="https://picsum.photos/seed/buzo2/500/350" alt="Buzo oversize marrón" />
                         <div class="card-body">
                             <h3>Buzo Oversize Marrón Latte</h3>
                             <p class="card-location">Ubicación: Bahía Blanca</p>
@@ -202,10 +253,14 @@
                             <p class="card-features">Frisa liviana · Corte amplio</p>
                             <p class="card-price">$ 30.500</p>
                             <p class="card-shipping">Envío: 72 hs · Costo: $3.000</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="buzo-oversize-marron">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 3 -->
                     <article class="card card-brown">
-                        <img src="https://picsum.photos/seed/buzo3/500/350" alt="Buzo básico" />
+                        <img src="https://picsum.photos/seed/buzo3/500/350" alt="Buzo básico gris" />
                         <div class="card-body">
                             <h3>Buzo Básico Gris Hielo</h3>
                             <p class="card-location">Ubicación: Mendoza</p>
@@ -213,19 +268,53 @@
                             <p class="card-features">Algodón + poliéster · No hace pelotitas</p>
                             <p class="card-price">$ 26.900</p>
                             <p class="card-shipping">Envío: 3 a 5 días · Costo: $3.000</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="buzo-basico-gris">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 4 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/buzo4/500/350" alt="Buzo cropped" />
+                        <div class="card-body">
+                            <h3>Buzo Cropped Fucsia Glow</h3>
+                            <p class="card-location">Ubicación: CABA</p>
+                            <p class="card-desc">Corte corto para outfits más urbanos.</p>
+                            <p class="card-features">Capucha · Puños elastizados</p>
+                            <p class="card-price">$ 27.500</p>
+                            <p class="card-shipping">Envío: 48 hs · Costo: $3.200</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="buzo-cropped">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 5 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/buzo5/500/350" alt="Buzo zipper" />
+                        <div class="card-body">
+                            <h3>Buzo Zipper Latte</h3>
+                            <p class="card-location">Ubicación: La Plata</p>
+                            <p class="card-desc">Cierre frontal, cómodo para layering.</p>
+                            <p class="card-features">Bolsillos laterales · Fit relaxed</p>
+                            <p class="card-price">$ 31.900</p>
+                            <p class="card-shipping">Envío: 72 hs · Costo: $3.300</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="buzo-zipper">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
                 </div>
+
                 <div class="carousel-footer">
                     <button class="btn-link"
-                            onclick="window.location.href='catalogo.html#buzos-catalogo'">
+                        onclick="window.location.href='catalogo.html#buzos-catalogo'">
                         Ver todos los buzos →
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Imagen publicitaria -->
+        <!-- IMAGEN PUBLICITARIA -->
         <section class="section banner-section">
             <img src="https://picsum.photos/seed/banner1/1200/280" alt="Promo temporada" class="banner-image" />
             <div class="banner-overlay-text">
@@ -234,7 +323,7 @@
             </div>
         </section>
 
-        <!-- Zapatos (2 tarjetas verticales) -->
+        <!-- ZAPATOS (2 tarjetas verticales fucsia) -->
         <section id="zapatos" class="section category-section">
             <header class="section-header">
                 <h2>Zapatos y zapatillas</h2>
@@ -267,7 +356,7 @@
             </div>
         </section>
 
-        <!-- Imagen publicitaria 2 -->
+        <!-- IMAGEN PUBLICITARIA 2 -->
         <section class="section banner-section">
             <img src="https://picsum.photos/seed/banner2/1200/280" alt="Promo zapatos" class="banner-image" />
             <div class="banner-overlay-text">
@@ -276,17 +365,20 @@
             </div>
         </section>
 
-        <!-- Pantalones -->
+        <!-- PANTALONES -->
         <section id="pantalones" class="section category-section">
             <header class="section-header">
                 <h2>Pantalones que acompañan tu ritmo</h2>
                 <p>Joggers, cargos y denim listos para la calle.</p>
             </header>
 
-            <!-- CARRUSEL PANTALONES -->
+            <!-- CARRUSEL PANTALONES (5 productos) -->
             <div class="carousel" data-carousel="pantalones">
                 <button class="carousel-arrow left" data-dir="prev">‹</button>
+                <button class="carousel-arrow right" data-dir="next">›</button>
+
                 <div class="carousel-track">
+                    <!-- 1 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/pantalon1/500/350" alt="Jogger cargo" />
                         <div class="card-body">
@@ -296,8 +388,12 @@
                             <p class="card-features">Tela resistente · Fit relajado</p>
                             <p class="card-price">$ 29.900</p>
                             <p class="card-shipping">Envío: 48 hs · Costo: $3.000</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="pantalon-jogger-cargo">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 2 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/pantalon2/500/350" alt="Jean mom" />
                         <div class="card-body">
@@ -307,8 +403,12 @@
                             <p class="card-features">Tiro alto · No se destiñe</p>
                             <p class="card-price">$ 33.500</p>
                             <p class="card-shipping">Envío: 72 hs · Costo: $3.500</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="pantalon-jean-mom">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 3 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/pantalon3/500/350" alt="Pantalón sastrero" />
                         <div class="card-body">
@@ -318,12 +418,46 @@
                             <p class="card-features">Tiro medio · Corte recto</p>
                             <p class="card-price">$ 36.000</p>
                             <p class="card-shipping">Envío: 3 a 5 días · Costo: $3.800</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="pantalon-sastrero">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 4 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/pantalon4/500/350" alt="Pantalón wide leg" />
+                        <div class="card-body">
+                            <h3>Pantalón Wide Leg Nude</h3>
+                            <p class="card-location">Ubicación: Santa Fe</p>
+                            <p class="card-desc">Pierna ancha y caída suave, ideal para looks elegantes.</p>
+                            <p class="card-features">Tela fluida · Cintura alta</p>
+                            <p class="card-price">$ 38.000</p>
+                            <p class="card-shipping">Envío: 72 hs · Costo: $3.800</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="pantalon-wide-leg">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 5 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/pantalon5/500/350" alt="Pantalón jogger basic" />
+                        <div class="card-body">
+                            <h3>Pantalón Jogger Basic</h3>
+                            <p class="card-location">Ubicación: Córdoba</p>
+                            <p class="card-desc">Comodidad absoluta para todos los días.</p>
+                            <p class="card-features">Frisa liviana · Puños ajustados</p>
+                            <p class="card-price">$ 27.500</p>
+                            <p class="card-shipping">Envío: 3 días · Costo: $3.000</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="pantalon-jogger-basic">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
                 </div>
+
                 <div class="carousel-footer">
                     <button class="btn-link"
-                            onclick="window.location.href='catalogo.html#pantalones-catalogo'">
+                        onclick="window.location.href='catalogo.html#pantalones-catalogo'">
                         Ver todos los pantalones →
                     </button>
                 </div>
@@ -332,7 +466,7 @@
             <!-- 3 TARJETAS VERTICALES FUXIA -->
             <div class="vertical-card-group">
                 <article class="card card-fuchsia">
-                    <img src="https://picsum.photos/seed/pantalon4/500/350" alt="Jogger urbano" />
+                    <img src="https://picsum.photos/seed/pantalon6/500/350" alt="Jogger urbano" />
                     <div class="card-body">
                         <h3>Jogger Urbano Fucsia Detail</h3>
                         <p class="card-location">Ubicación: CABA</p>
@@ -343,18 +477,18 @@
                     </div>
                 </article>
                 <article class="card card-fuchsia">
-                    <img src="https://picsum.photos/seed/pantalon5/500/350" alt="Pantalón wide leg" />
+                    <img src="https://picsum.photos/seed/pantalon7/500/350" alt="Pantalón wide leg" />
                     <div class="card-body">
                         <h3>Pantalón Wide Leg Nude</h3>
                         <p class="card-location">Ubicación: Santa Fe</p>
-                        <p class="card-desc">Pierna ancha y caída suave, ideal para outfits elegantes.</p>
+                        <p class="card-desc">Pierna ancha y caída suave, ideal para looks elegantes.</p>
                         <p class="card-features">Tela fluida · Cintura alta</p>
                         <p class="card-price">$ 38.000</p>
                         <p class="card-shipping">Envío: 72 hs · Costo: $3.800</p>
                     </div>
                 </article>
                 <article class="card card-fuchsia">
-                    <img src="https://picsum.photos/seed/pantalon6/500/350" alt="Pantalón jogger básico" />
+                    <img src="https://picsum.photos/seed/pantalon8/500/350" alt="Pantalón jogger básico" />
                     <div class="card-body">
                         <h3>Pantalón Jogger Basic</h3>
                         <p class="card-location">Ubicación: Córdoba</p>
@@ -367,7 +501,7 @@
             </div>
         </section>
 
-        <!-- CARRUSEL ZAPATOS -->
+        <!-- CARRUSEL ZAPATOS FINAL -->
         <section class="section category-section">
             <header class="section-header">
                 <h2>Zapatos destacados</h2>
@@ -376,7 +510,10 @@
 
             <div class="carousel" data-carousel="zapatos">
                 <button class="carousel-arrow left" data-dir="prev">‹</button>
+                <button class="carousel-arrow right" data-dir="next">›</button>
+
                 <div class="carousel-track">
+                    <!-- 1 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/zapato3/500/350" alt="Zapatillas blancas" />
                         <div class="card-body">
@@ -386,8 +523,12 @@
                             <p class="card-features">Suela liviana · Plantilla memory foam</p>
                             <p class="card-price">$ 42.000</p>
                             <p class="card-shipping">Envío: 48 hs · Costo: $4.000</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="zapas-blancas-minimal">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 2 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/zapato4/500/350" alt="Borcegos" />
                         <div class="card-body">
@@ -397,8 +538,12 @@
                             <p class="card-features">Capellada sintética · Suela antideslizante</p>
                             <p class="card-price">$ 47.800</p>
                             <p class="card-shipping">Envío: 72 hs · Costo: $4.500</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="borcegos-urban-marron">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
+                    <!-- 3 -->
                     <article class="card card-brown">
                         <img src="https://picsum.photos/seed/zapato5/500/350" alt="Zapatillas deportivas" />
                         <div class="card-body">
@@ -408,19 +553,53 @@
                             <p class="card-features">Amortiguación extra · Malla respirable</p>
                             <p class="card-price">$ 44.500</p>
                             <p class="card-shipping">Envío: 3 días · Costo: $4.000</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="zapas-running-fucsia">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 4 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/zapato6/500/350" alt="Zapatillas chunky" />
+                        <div class="card-body">
+                            <h3>Zapatillas Chunky Fucsia</h3>
+                            <p class="card-location">Ubicación: Quilmes</p>
+                            <p class="card-desc">Suela alta y diseño urbano para destacar.</p>
+                            <p class="card-features">Talles 35 al 41 · Plantilla confort</p>
+                            <p class="card-price">$ 39.000</p>
+                            <p class="card-shipping">Envío: 48 hs · Costo: $3.800</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="zapas-chunky-fucsia">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </article>
+                    <!-- 5 -->
+                    <article class="card card-brown">
+                        <img src="https://picsum.photos/seed/zapato7/500/350" alt="Botas marrones" />
+                        <div class="card-body">
+                            <h3>Botas Marrón Caramel</h3>
+                            <p class="card-location">Ubicación: Córdoba</p>
+                            <p class="card-desc">Cuero sintético de alta calidad, perfectas para otoño.</p>
+                            <p class="card-features">Suela antideslizante · Caña media</p>
+                            <p class="card-price">$ 45.500</p>
+                            <p class="card-shipping">Envío: 72 hs · Costo: $4.200</p>
+                            <button class="btn-primary add-cart-btn" data-product-id="botas-marron-caramel">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </article>
                 </div>
+
                 <div class="carousel-footer">
                     <button class="btn-link"
-                            onclick="window.location.href='catalogo.html#zapatos-catalogo'">
+                        onclick="window.location.href='catalogo.html#zapatos-catalogo'">
                         Ver todos los zapatos →
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- ACCESORIOS (anchor para categoría) -->
+        <!-- ACCESORIOS (ancla) -->
         <section id="accesorios" class="section category-section">
             <header class="section-header">
                 <h2>Accesorios</h2>
@@ -429,7 +608,7 @@
             <p class="section-note">Próximamente accesorios en catálogo completo. Podés ver avances en nuestras redes.</p>
         </section>
 
-        <!-- CONTACTO (anchor) -->
+        <!-- CONTACTO (ancla) -->
         <section id="contacto" class="section contact-section">
             <header class="section-header">
                 <h2>Contacto rápido</h2>
