@@ -846,3 +846,19 @@ body.cart-open .cart-backdrop {
         display: none;
     }
 }
+
+/* Menú responsive: desplegable debajo del botón "Menú" */
+.nav {
+    position: absolute;
+    top: calc(100% + 0.4rem); /* justo debajo del botón */
+    left: -100%;              /* escondido por defecto */
+    width: min(260px, 90vw);
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    transition: left 0.25s ease;
+    z-index: 25;
+    max-height: 70vh;
+    overflow-y: auto;
+}
