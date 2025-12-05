@@ -10,6 +10,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- CSS reforzado -->
     <link rel="stylesheet" href="./styles.css?v=3" />
 </head>
 <body>
@@ -177,7 +178,7 @@
                 </div>
             </div>
 
-            <!-- 3 TARJETAS VERTICALES FUXIA -->
+            <!-- 3 TARJETAS VERTICALES FUXIA (AHORA CON BOTÓN) -->
             <div class="vertical-card-group">
                 <article class="card card-fuchsia">
                     <img src="https://picsum.photos/seed/remera6/500/350" alt="Remera unisex" />
@@ -188,6 +189,9 @@
                         <p class="card-features">Estampado frontal · Edición limitada</p>
                         <p class="card-price">$ 18.500</p>
                         <p class="card-shipping">Envío: 48 hs · Costo: $2.500</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="remera-unisex">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
                 <article class="card card-fuchsia">
@@ -199,6 +203,9 @@
                         <p class="card-features">Colores neutros · No se encogen</p>
                         <p class="card-price">$ 32.000</p>
                         <p class="card-shipping">Envío: 72 hs · Costo: $3.000</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="pack-2-remeras">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
                 <article class="card card-fuchsia">
@@ -210,6 +217,9 @@
                         <p class="card-features">Estampa frontal + espalda</p>
                         <p class="card-price">$ 19.800</p>
                         <p class="card-shipping">Envío: 3 a 5 días · Costo: $3.200</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="remera-grafica">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
             </div>
@@ -295,7 +305,7 @@
                             <h3>Buzo Zipper Latte</h3>
                             <p class="card-location">Ubicación: La Plata</p>
                             <p class="card-desc">Cierre frontal, cómodo para layering.</p>
-                            <p class="card-features">Bolsillos laterales · Fit relaxed</p>
+                            <p="card-features">Bolsillos laterales · Fit relaxed</p>
                             <p class="card-price">$ 31.900</p>
                             <p class="card-shipping">Envío: 72 hs · Costo: $3.300</p>
                             <button class="btn-primary add-cart-btn" data-product-id="buzo-zipper">
@@ -323,7 +333,7 @@
             </div>
         </section>
 
-        <!-- ZAPATOS (2 tarjetas verticales fucsia) -->
+        <!-- ZAPATOS (2 tarjetas verticales fucsia, ahora con botón) -->
         <section id="zapatos" class="section category-section">
             <header class="section-header">
                 <h2>Zapatos y zapatillas</h2>
@@ -340,6 +350,9 @@
                         <p class="card-features">Talles 35 al 41 · Plantilla confort</p>
                         <p class="card-price">$ 39.000</p>
                         <p class="card-shipping">Envío: 48 hs · Costo: $3.800</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="zapas-chunky-fucsia">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
                 <article class="card card-fuchsia">
@@ -351,6 +364,9 @@
                         <p class="card-features">Suela antideslizante · Caña media</p>
                         <p class="card-price">$ 45.500</p>
                         <p class="card-shipping">Envío: 72 hs · Costo: $4.200</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="botas-marron-caramel">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
             </div>
@@ -463,7 +479,7 @@
                 </div>
             </div>
 
-            <!-- 3 TARJETAS VERTICALES FUXIA -->
+            <!-- 3 TARJETAS VERTICALES FUXIA (AHORA CON BOTÓN) -->
             <div class="vertical-card-group">
                 <article class="card card-fuchsia">
                     <img src="https://picsum.photos/seed/pantalon6/500/350" alt="Jogger urbano" />
@@ -474,6 +490,9 @@
                         <p class="card-features">Tela deportiva · Cintura elástica</p>
                         <p class="card-price">$ 31.500</p>
                         <p class="card-shipping">Envío: 48 hs · Costo: $3.200</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="pantalon-jogger-urbano">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
                 <article class="card card-fuchsia">
@@ -485,6 +504,9 @@
                         <p class="card-features">Tela fluida · Cintura alta</p>
                         <p class="card-price">$ 38.000</p>
                         <p class="card-shipping">Envío: 72 hs · Costo: $3.800</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="pantalon-wide-leg">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
                 <article class="card card-fuchsia">
@@ -496,6 +518,9 @@
                         <p class="card-features">Frisa liviana · Puños ajustados</p>
                         <p class="card-price">$ 27.500</p>
                         <p class="card-shipping">Envío: 3 días · Costo: $3.000</p>
+                        <button class="btn-primary add-cart-btn" data-product-id="pantalon-jogger-basic">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </article>
             </div>
@@ -657,25 +682,7 @@
     </div>
     <div class="cart-backdrop" id="cartBackdrop"></div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-socials">
-            <a href="#" aria-label="Instagram" class="social-link">
-                <span>📷</span> Instagram
-            </a>
-            <a href="#" aria-label="Facebook" class="social-link">
-                <span>📘</span> Facebook
-            </a>
-            <a href="#" aria-label="TikTok" class="social-link">
-                <span>🎵</span> TikTok
-            </a>
-            <a href="#" aria-label="X" class="social-link">
-                <span>✖</span> X
-            </a>
-        </div>
-        <p class="footer-copy">© 2025 Moda Urbana · Todos los derechos reservados.</p>
-    </footer>
-
+    <!-- JS reforzado -->
     <script src="./app.js?v=3" defer></script>
 </body>
 </html>

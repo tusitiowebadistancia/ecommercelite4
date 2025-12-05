@@ -1,14 +1,17 @@
 // Número de WhatsApp (formato internacional sin +)
 const WHATSAPP_NUMBER = "5492262629001";
 
-// Productos: 5 remeras, 5 buzos, 5 pantalones, 5 zapatos
+// Productos: carruseles + tarjetas sueltas
 const products = [
-    // Remeras
+    // Remeras (carrusel)
     { id: "remera-oversize", name: "Remera Oversize Negra", price: 15000 },
     { id: "remera-estampada", name: "Remera Estampada Street", price: 17500 },
     { id: "remera-basica", name: "Remera Básica Beige", price: 14000 },
     { id: "remera-unisex", name: "Remera Unisex Blanco & Fucsia", price: 18500 },
     { id: "remera-grafica", name: "Remera Gráfica Night City", price: 19800 },
+
+    // Remeras extra (tarjetas fucsia)
+    { id: "pack-2-remeras", name: "Pack 2 Remeras Essentials", price: 32000 },
 
     // Buzos
     { id: "buzo-hoodie-fucsia", name: "Buzo Hoodie Fucsia", price: 28000 },
@@ -17,14 +20,17 @@ const products = [
     { id: "buzo-cropped", name: "Buzo Cropped Fucsia Glow", price: 27500 },
     { id: "buzo-zipper", name: "Buzo Zipper Latte", price: 31900 },
 
-    // Pantalones
+    // Pantalones (carrusel)
     { id: "pantalon-jogger-cargo", name: "Jogger Cargo Beige", price: 29900 },
     { id: "pantalon-jean-mom", name: "Jean Mom Fit", price: 33500 },
     { id: "pantalon-sastrero", name: "Pantalón Sastrero Latte", price: 36000 },
     { id: "pantalon-wide-leg", name: "Pantalón Wide Leg Nude", price: 38000 },
     { id: "pantalon-jogger-basic", name: "Pantalón Jogger Basic", price: 27500 },
 
-    // Zapatos
+    // Pantalones extra (tarjetas fucsia)
+    { id: "pantalon-jogger-urbano", name: "Jogger Urbano Fucsia Detail", price: 31500 },
+
+    // Zapatos (carruseles + tarjetas fucsia)
     { id: "zapas-blancas-minimal", name: "Zapatillas Blancas Minimal", price: 42000 },
     { id: "borcegos-urban-marron", name: "Borcegos Urban Marrón", price: 47800 },
     { id: "zapas-running-fucsia", name: "Zapatillas Running Fucsia", price: 44500 },
@@ -279,7 +285,6 @@ function setupCarousels() {
         updateButtons();
     });
 }
-
 
 /* Botones "Agregar al carrito" */
 function attachCartButtons() {
