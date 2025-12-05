@@ -203,27 +203,83 @@ function setupCartPanel() {
     cartCloseBtn.addEventListener("click", closeCart);
 }
 
-/* Carruseles: flechas izquierda/derecha, avanzan de a 1 tarjeta */
+/* Carruseles tipo Mercado Libre: flechas + swipe, avanzan de a 1 “página” */
 function setupCarousels() {
     document.querySelectorAll(".carousel").forEach(carousel => {
         const track = carousel.querySelector(".carousel-track");
         const leftBtn = carousel.querySelector(".carousel-arrow.left");
         const rightBtn = carousel.querySelector(".carousel-arrow.right");
-        if (!track || !leftBtn || !rightBtn) return;
+        const cards = track ? track.querySelectorAll(".card") : [];
+        if (!track || !leftBtn || !rightBtn || !cards.length) return;
 
-        function scrollByOne(direction) {
-            const card = track.querySelector(".card");
-            const offset = card ? card.offsetWidth + 16 : 260; // ancho tarjeta + gap
-            track.scrollBy({
-                left: direction === "next" ? offset : -offset,
-                behavior: "smooth"
-            });
+        let currentIndex = 0;
+
+        function getGap() {
+            const styles = getComputedStyle(track);
+            const gap = parseFloat(styles.columnGap || styles.gap || "16");
+            return isNaN(gap) ? 16 : gap;
         }
 
-        leftBtn.addEventListener("click", () => scrollByOne("prev"));
-        rightBtn.addEventListener("click", () => scrollByOne("next"));
+        function getStep() {
+            const firstCard = cards[0];
+            const cardWidth = firstCard.getBoundingClientRect().width;
+            return cardWidth + getGap();
+        }
+
+        function getVisibleCount() {
+            const firstCard = cards[0];
+            const cardWidth = firstCard.getBoundingClientRect().width || 1;
+            return Math.max(1, Math.round(track.offsetWidth / cardWidth));
+        }
+
+        function getMaxIndex() {
+            const visible = getVisibleCount();
+            return Math.max(0, cards.length - visible);
+        }
+
+        function goToIndex(index) {
+            const maxIndex = getMaxIndex();
+            currentIndex = Math.min(Math.max(index, 0), maxIndex);
+            const step = getStep();
+            const target = currentIndex * step;
+            track.scrollTo({
+                left: target,
+                behavior: "smooth"
+            });
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const maxIndex = getMaxIndex();
+            leftBtn.disabled = currentIndex <= 0;
+            rightBtn.disabled = currentIndex >= maxIndex;
+        }
+
+        leftBtn.addEventListener("click", () => {
+            goToIndex(currentIndex - 1);
+        });
+
+        rightBtn.addEventListener("click", () => {
+            goToIndex(currentIndex + 1);
+        });
+
+        // Cuando el usuario hace scroll con el dedo, actualizamos el índice
+        let scrollTimeout;
+        track.addEventListener("scroll", () => {
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const step = getStep();
+                const newIndex = Math.round(track.scrollLeft / step);
+                currentIndex = newIndex;
+                updateButtons();
+            }, 80);
+        });
+
+        // Inicializa estado de flechas
+        updateButtons();
     });
 }
+
 
 /* Botones "Agregar al carrito" */
 function attachCartButtons() {
